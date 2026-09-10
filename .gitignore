@@ -18,3 +18,4 @@ venv/
 *.key
 service-account*.json
 credentials*.json
+tmp/
