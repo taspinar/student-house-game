@@ -3,11 +3,12 @@
 set -euo pipefail
 
 if [[ $# -lt 3 ]]; then
-  echo "Usage: $0 <issue-number> <slug> <agent> [base-branch]"
+  echo "Usage: $0 <issue-number> <slug> <agent> [base-branch] [model]"
   echo
   echo "Examples:"
   echo "  $0 1 project-scaffold codex"
   echo "  $0 3 floorplan claude"
+  echo "  $0 4 multiplayer codex main gpt-5.6"
   exit 1
 fi
 
@@ -15,6 +16,7 @@ issue="$1"
 slug="$2"
 agent="$3"
 base="${4:-main}"
+model="${5:-}"
 
 branch="feature/${issue}-${slug}"
 
@@ -27,6 +29,12 @@ echo "  Issue:    #$issue"
 echo "  Branch:   $branch"
 echo "  Worktree: $worktree"
 echo "  Agent:    $agent"
+
+if [[ -n "$model" ]]; then
+  echo "  Model:    $model"
+else
+  echo "  Model:    default"
+fi
 echo
 
 # Ensure current working tree is clean.
@@ -91,7 +99,17 @@ case "$agent" in
   codex)
     (
       cd "$worktree"
-      codex "$START_PROMPT"
+
+      codex_args=(
+        --sandbox workspace-write
+        --ask-for-approval never
+      )
+
+      if [[ -n "$model" ]]; then
+        codex_args+=(--model "$model")
+      fi
+
+      codex "${codex_args[@]}" "$START_PROMPT"
     )
     ;;
 
