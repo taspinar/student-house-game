@@ -1,6 +1,6 @@
 # Architecture — Student House Game
 
-**Status:** Initial planning baseline (no application code yet). Decisions with lasting impact are recorded as ADRs in `docs/decisions/`. This document describes the intended system; it must be kept in sync as features land.
+**Status:** Project scaffold implemented (F01): npm workspaces, strict TypeScript, a Vite canvas placeholder, and lint/type-check/test/build verification. Rendering and game components below remain the intended design. Decisions with lasting impact are recorded as ADRs in `docs/decisions/`. This document describes the intended system; it must be kept in sync as features land.
 
 ## 1. Product summary
 
