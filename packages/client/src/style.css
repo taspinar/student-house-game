@@ -1,12 +1,51 @@
+html,
 body {
-  margin: 2rem;
+  height: 100%;
+}
+
+body {
+  margin: 0;
   font-family: system-ui, sans-serif;
+  background: #101820;
+}
+
+.game-shell {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 canvas {
   display: block;
-  width: min(100%, 960px);
-  height: auto;
-  background: #e5e7eb;
-  border: 1px solid #6b7280;
+  height: 100%;
+  width: 100%;
+}
+
+.debug-overlay {
+  background: rgb(10 18 26 / 78%);
+  border: 1px solid rgb(191 219 254 / 55%);
+  border-radius: 0.5rem;
+  color: #e0f2fe;
+  font-size: 0.875rem;
+  left: 1rem;
+  min-width: 12rem;
+  padding: 0.75rem 1rem;
+  pointer-events: none;
+  position: absolute;
+  top: 1rem;
+}
+
+.debug-overlay h1,
+.debug-overlay p {
+  margin: 0;
+}
+
+.debug-overlay h1 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.debug-overlay .debug-help {
+  color: #bae6fd;
+  margin-top: 0.5rem;
 }

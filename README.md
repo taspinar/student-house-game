@@ -2,7 +2,7 @@
 
 A browser-based single-player game set in student apartment 407 and its immediate surroundings. The planned game uses stylized low-poly 3D, predefined characters, and simple house interactions.
 
-Currently, the repository contains the TypeScript workspace scaffold and a hello-world page with a canvas placeholder. Rendering and gameplay are future features.
+Currently, the repository contains the TypeScript workspace scaffold and a Three.js rendering foundation with a lit placeholder scene and fixed-pitch camera. World rendering and gameplay are future features.
 
 ## Development
 
