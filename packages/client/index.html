@@ -6,12 +6,20 @@
     <title>Student House Game</title>
   </head>
   <body>
-    <main>
-      <h1>Student House Game</h1>
-      <p id="greeting"></p>
-      <canvas width="960" height="540" aria-label="Game canvas placeholder">
-        Game canvas placeholder.
+    <main class="game-shell">
+      <canvas
+        id="game-canvas"
+        aria-label="Student House Game placeholder scene"
+      >
+        This browser does not support canvas.
       </canvas>
+      <aside class="debug-overlay">
+        <h1>Rendering foundation</h1>
+        <p id="debug-fps">FPS: --</p>
+        <p id="debug-yaw">Camera yaw: --</p>
+        <p id="debug-target">Target: --</p>
+        <p class="debug-help">Q / E: rotate camera</p>
+      </aside>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>

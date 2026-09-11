@@ -9,6 +9,10 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@student-house-game/shared": "0.0.0"
+    "@student-house-game/shared": "0.0.0",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.4"
   }
 }
