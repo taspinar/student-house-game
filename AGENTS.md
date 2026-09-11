@@ -27,6 +27,11 @@ If a material conflict remains, stop and report it.
 - No unrelated changes are included.
 - Docs/ADRs are updated when architecture or behavior changed.
 - Verification evidence is recorded in the active plan or PR.
+- Required independent review is complete and no Critical or Major findings
+  remain unresolved.
+- Required review findings have an approved triage artifact.
+- Deferred findings have a linked follow-up Issue; accepted findings have an
+  explicit rationale.
 
 ## Boundaries
 - Never push directly to `main`.
@@ -37,3 +42,46 @@ If a material conflict remains, stop and report it.
 
 ## Context freshness
 When resuming work, compare the plan/handoff base commit with current repository state. Revalidate assumptions before continuing and update stale artifacts.
+
+## Branch and worktree policy
+
+Agents must not make repository changes directly on `main`.
+
+This applies to:
+
+- application code
+- architecture documentation
+- roadmap changes
+- ADRs
+- feature plans
+- CI/CD configuration
+- infrastructure configuration
+
+Before modifying repository files, work on an appropriate branch.
+
+Examples:
+
+- `planning/project-bootstrap`
+- `planning/issue-12-authentication`
+- `feature/12-authentication`
+- `fix/27-login-error`
+
+For substantial implementation work, prefer a dedicated Git worktree.
+
+If the current branch is `main`, do not modify files before creating or
+switching to an appropriate branch.
+
+## Roadmap, Issues and Plans
+
+Use each artifact for its intended purpose:
+
+- `docs/roadmap.md` — project direction and future features
+- GitHub Issues — active actionable backlog items
+- `.agents/plans/` — detailed technical execution plans
+
+Do not duplicate detailed implementation plans into GitHub Issues.
+
+Do not create separate Issues for every plan step.
+
+Do not assume future roadmap items are still valid without reviewing the current
+architecture and roadmap first.
